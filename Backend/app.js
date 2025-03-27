@@ -1,4 +1,5 @@
 import express from 'express';
+import cookieParser from 'cookie-parser';
 import userRoutes from './routes/userRouts.js';
 
 import dotenv from 'dotenv';
@@ -13,6 +14,7 @@ const PORT = process.env.PORT || 5000;
 
 //middleware
 app.use(express.json());
+app.use(cookieParser());
 
 // routes
 
