@@ -1,6 +1,7 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import userRoutes from './routes/userRouts.js';
+import messageRoutes from './routes/messageRoutes.js'
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -16,9 +17,10 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cookieParser());
 
-// routes
 
+// routes
 app.use('/api/users', userRoutes);
+app.use('/api/message', messageRoutes);
 
 
 
