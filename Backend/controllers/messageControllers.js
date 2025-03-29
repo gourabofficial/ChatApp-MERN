@@ -25,8 +25,6 @@ export const sendMessage = async (req, res) => {
       message,
     });
 
-    console.log("New Message Created:", newMessage);
-
     if (newMessage) {
    
       gotConversation.messages.push(newMessage._id);
@@ -56,6 +54,8 @@ export const getMessages = async (req, res) => {
         $all: [senderId, receiverId]
       },
     }).populate("messages");
+
+    return res.status(200).json( conversation?.messages );
     
   } catch (error) {
     res.status(500).json({ message: "message error " });
